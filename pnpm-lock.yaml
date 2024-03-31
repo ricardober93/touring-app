@@ -7,7 +7,7 @@ settings:
 devDependencies:
   '@builder.io/qwik':
     specifier: ^1.5.1
-    version: 1.5.1(@types/node@20.11.24)(undici@0.1.0)
+    version: 1.5.1(@types/node@20.11.24)(undici@5.28.3)
   '@builder.io/qwik-city':
     specifier: ^1.5.1
     version: 1.5.1(@types/node@20.11.24)
@@ -37,7 +37,7 @@ devDependencies:
     version: 5.3.3
   undici:
     specifier: '*'
-    version: 0.1.0
+    version: 5.28.3
   vite:
     specifier: ^5.1.4
     version: 5.1.4(@types/node@20.11.24)
@@ -60,7 +60,7 @@ packages:
       '@types/mdx': 2.0.12
       source-map: 0.7.4
       svgo: 3.2.0
-      undici: 0.1.0
+      undici: 5.28.3
       vfile: 6.0.1
       vite: 5.1.4(@types/node@20.11.24)
       vite-imagetools: 6.2.9
@@ -77,7 +77,7 @@ packages:
       - terser
     dev: true
 
-  /@builder.io/qwik@1.5.1(@types/node@20.11.24)(undici@0.1.0):
+  /@builder.io/qwik@1.5.1(@types/node@20.11.24)(undici@5.28.3):
     resolution: {integrity: sha512-xjGVH6xx/ADN+ACSfvoZQWIlN6B4bTcL1gpoijVKyx/Wed7U7QPgVq2VIJ92Vhr6Y+uKiUaoNlsuY5s4PhVQkQ==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     hasBin: true
@@ -85,7 +85,7 @@ packages:
       undici: '*'
     dependencies:
       csstype: 3.1.3
-      undici: 0.1.0
+      undici: 5.28.3
       vite: 5.1.4(@types/node@20.11.24)
     transitivePeerDependencies:
       - '@types/node'
@@ -347,6 +347,11 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@fastify/busboy@2.1.1:
+    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
+    engines: {node: '>=14'}
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:
@@ -1348,12 +1353,6 @@ packages:
       domhandler: 5.0.3
     dev: true
 
-  /end-of-stream@1.4.4:
-    resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==}
-    dependencies:
-      once: 1.4.0
-    dev: true
-
   /entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
@@ -1916,10 +1915,6 @@ packages:
       '@types/hast': 3.0.4
     dev: true
 
-  /http-parser-js@0.4.13:
-    resolution: {integrity: sha512-u8u5ZaG0Tr/VvHlucK2ufMuOp4/5bvwgneXle+y228K5rMbJOlVjThONcaAw3ikAy8b2OO9RfEucdMHFz3UWMA==}
-    dev: true
-
   /ignore@5.3.1:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
@@ -2173,10 +2168,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-    dev: true
-
-  /listenercount@1.0.1:
-    resolution: {integrity: sha512-3mk/Zag0+IJxeDrxSgaDPy4zZ3w05PRZeJNnlWhzFz5OkX49J4krc+A8X2d2M69vGMBEX0uyl8M+W+8gH+kBqQ==}
     dev: true
 
   /locate-path@6.0.0:
@@ -2781,10 +2772,6 @@ packages:
     hasBin: true
     dev: true
 
-  /process-nextick-args@1.0.7:
-    resolution: {integrity: sha512-yN0WQmuCX63LP/TMvAg31nvT6m4vDqJEiiv2CAZqWOGNWutc9DfDk1NPYYmKUFmaVM2UwDowH4u5AHWYP/jxKw==}
-    dev: true
-
   /property-information@6.4.1:
     resolution: {integrity: sha512-OHYtXfu5aI2sS2LWFSN5rgJjrQ4pCy8i1jubJLe2QvMF8JJ++HXTUIVWFLfXJoaOfvYYjk2SN8J2wFUWIGXT4w==}
     dev: true
@@ -2841,10 +2828,6 @@ packages:
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
-    dev: true
-
-  /retimer@1.1.0:
-    resolution: {integrity: sha512-+Tjoa47XqpO+cmNObvmK6UPFmUTzQPtr4MqMS7ZJKPKYAnryCxG2FXT8/SEgPsEghQQgXFPZEdILNxJkvXtjUw==}
     dev: true
 
   /reusify@1.0.4:
@@ -3095,14 +3078,6 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /syncthrough@0.5.0:
-    resolution: {integrity: sha512-LvN6euZGycMIhbV1TrM69tDvX+Aw+DQGyv5hrVrvwqDnExdqUYX38yKbq2c19c+3ULzOjX/zLdllnHIqFMPJuA==}
-    dependencies:
-      inherits: 2.0.4
-      listenercount: 1.0.1
-      process-nextick-args: 1.0.7
-    dev: true
-
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
@@ -3225,14 +3200,11 @@ packages:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
     dev: true
 
-  /undici@0.1.0:
-    resolution: {integrity: sha512-mk5o9H1ia0u/4UQiSV7pYO1IEKJRDw9iV8IiqbtHypuT9MuXJowh1wmGeRs8Ix4K17WN+e6dIzgtnjhUJSMcgg==}
+  /undici@5.28.3:
+    resolution: {integrity: sha512-3ItfzbrhDlINjaP0duwnNsKpDQk3acHI3gVJ1z4fmwMK31k5G9OVIAMLSIaP6w4FaGkaAkN6zaQO9LUvZ1t7VA==}
+    engines: {node: '>=14.0'}
     dependencies:
-      end-of-stream: 1.4.4
-      fastq: 1.17.1
-      http-parser-js: 0.4.13
-      retimer: 1.1.0
-      syncthrough: 0.5.0
+      '@fastify/busboy': 2.1.1
     dev: true
 
   /unified@11.0.4:
