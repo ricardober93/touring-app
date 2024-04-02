@@ -1,43 +1,24 @@
 import { component$ } from "@builder.io/qwik";
 import { QwikLogo } from "../icons/qwik";
-import styles from "./header.module.css";
+import { Flex } from "~/styled-system/jsx";
 
 export default component$(() => {
   return (
-    <header class={styles.header}>
-      <div class={["container", styles.wrapper]}>
-        <div class={styles.logo}>
+    <Flex w={"100%"} bg={"gray.200"} py={2} px={4}>
+      <Flex w={"100%"} alignItems={"center"} justifyContent={"space-between"}>
+        <div>
           <a href="/" title="qwik">
             <QwikLogo height={50} width={143} />
           </a>
         </div>
         <ul>
           <li>
-            <a
-              href="https://qwik.builder.io/docs/components/overview/"
-              target="_blank"
-            >
-              Docs
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://qwik.builder.io/examples/introduction/hello-world/"
-              target="_blank"
-            >
-              Examples
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://qwik.builder.io/tutorial/welcome/overview/"
-              target="_blank"
-            >
-              Tutorials
+            <a href="pandacss" target="_blank">
+              Tures
             </a>
           </li>
         </ul>
-      </div>
-    </header>
+      </Flex>
+    </Flex>
   );
 });
