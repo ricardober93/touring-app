@@ -44,5 +44,9 @@
     "vercel": "^29.1.1",
     "vite": "^5.1.4",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@modular-forms/qwik": "^0.23.1",
+    "valibot": "^0.30.0"
   }
 }

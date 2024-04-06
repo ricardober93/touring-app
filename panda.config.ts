@@ -1,4 +1,5 @@
 import { defineConfig } from "@pandacss/dev";
+import { textStyles } from "~/theme/textTheme";
 
 export default defineConfig({
   jsxFramework: "qwik",
@@ -14,7 +15,9 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      textStyles,
+    },
   },
 
   // The output directory for your css system
