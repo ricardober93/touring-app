@@ -1,4 +1,4 @@
-//import { $, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 
 import { css } from "~/styled-system/css";
 import { Flex } from "~/styled-system/jsx";
