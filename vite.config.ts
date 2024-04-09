@@ -25,11 +25,16 @@ export default defineConfig(({ command, mode }): UserConfig => {
       qwikVite(),
       tsconfigPaths(),
     ],
+    build: {
+      commonjsOptions: {
+      
+      }
+    },
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
       // For example ['better-sqlite3'] if you use that in server functions.
-      include: ['@auth/core', ],
+      include: ['@auth/core', 'bcrypt' ],
       exclude: [],
     },
     // This tells Vite how to bundle the server code.
@@ -44,7 +49,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
             // If a dep-of-dep needs to be external, add it here
             // For example, if something uses `bcrypt` but you don't have it as a dep, you can write
             // external: [...Object.keys(dependencies), 'bcrypt']
-            external:[...Object.keys(dependencies)],
+            external:[...Object.keys(dependencies), 'path'],
           }
         : undefined,
     server: {
