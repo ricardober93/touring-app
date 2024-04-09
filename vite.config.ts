@@ -34,7 +34,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
       // For example ['better-sqlite3'] if you use that in server functions.
-      include: ['@auth/core', 'bcrypt' ],
+      include: ['@auth/core', ],
       exclude: [],
     },
     // This tells Vite how to bundle the server code.
@@ -43,7 +43,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         ? {
       
             // All dev dependencies should be bundled in the server build
-            noExternal: Object.keys(devDependencies),
+            noExternal: [...Object.keys(devDependencies), 'bcrypt' ],
             // Anything marked as a dependency will not be bundled
             // These should only be production binary deps (including deps of deps), CLI deps, and their module graph
             // If a dep-of-dep needs to be external, add it here
