@@ -4,7 +4,7 @@ import Google from "@auth/core/providers/google";
 import type { Provider } from "@auth/core/providers";
 import Credentials from "@auth/core/providers/credentials";
 import { prisma } from "./../server/db";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
   serverAuth$(({ env }) => ({
