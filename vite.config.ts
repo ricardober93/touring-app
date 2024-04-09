@@ -25,6 +25,13 @@ export default defineConfig(({ command, mode }): UserConfig => {
       qwikVite(),
       tsconfigPaths(),
     ],
+    build: {
+      ssr: true,
+      rollupOptions: {
+        input: ['@qwik-city-plan'],
+        external: ['bcryptjs'], 
+      },
+    },  
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
@@ -38,7 +45,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         ? {
       
             // All dev dependencies should be bundled in the server build
-            noExternal: [...Object.keys(devDependencies), 'bcryptjs'],
+            noExternal: [...Object.keys(devDependencies), ],
             // Anything marked as a dependency will not be bundled
             // These should only be production binary deps (including deps of deps), CLI deps, and their module graph
             // If a dep-of-dep needs to be external, add it here
