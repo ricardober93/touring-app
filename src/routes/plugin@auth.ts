@@ -4,7 +4,7 @@ import Google from "@auth/core/providers/google";
 import type { Provider } from "@auth/core/providers";
 import Credentials from "@auth/core/providers/credentials";
 import prisma from "./../server/db";
-import bcrypt from "bcrypt";
+import { createUser } from "~/models/user.models";
 
 export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
   serverAuth$(({ env }) => ({
@@ -51,18 +51,7 @@ export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
             };
           }
 
-          const hashedPassword = await bcrypt.hash(password, 10);
-
-          const user = await prisma?.user.create({
-            data: {
-              email,
-              password: {
-                create: {
-                  hash: hashedPassword,
-                },
-              },
-            },
-          });
+          const user = createUser(email, password);
 
           return user;
         },
