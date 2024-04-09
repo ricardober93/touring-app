@@ -4,7 +4,11 @@ import { Box, Flex } from "~/styled-system/jsx";
 import { Link } from "@builder.io/qwik-city";
 import { Button } from "./Button";
 
+import { useAuthSession } from "~/routes/plugin@auth";
+import { Avatar } from "./Avatar";
+
 export default component$(() => {
+  const session = useAuthSession();
   const show = useSignal(false);
 
   const toggleMenu = $(() => {
@@ -46,12 +50,23 @@ export default component$(() => {
           md: "flex",
         }}
       >
-        <Button>
-          <Link href="/login">Login</Link>
-        </Button>
-        <Button variant="secondary">
-          <Link href="/sign-up">Sing up</Link>
-        </Button>
+        {session.value?.user ? (
+          <Link href="/profile" prefetch>
+            {" "}
+            <Avatar
+              image={session.value.user.image ?? "https://placehold.co/66x64"}
+            />
+          </Link>
+        ) : (
+          <>
+            <Button>
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button variant="secondary">
+              <Link href="/sign-up">Sing up</Link>
+            </Button>
+          </>
+        )}
       </Flex>
 
       <Box

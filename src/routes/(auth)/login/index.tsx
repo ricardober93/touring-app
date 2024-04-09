@@ -1,51 +1,50 @@
-import { $, component$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import {
-  type SubmitHandler,
-  formAction$,
-  useForm,
-  valiForm$,
-  type InitialValues,
-} from "@modular-forms/qwik";
-import { Button } from "~/components/Button";
+//import { $, component$ } from "@builder.io/qwik";
+
 import { css } from "~/styled-system/css";
-import { Flex, Grid } from "~/styled-system/jsx";
+import { Flex } from "~/styled-system/jsx";
 
-import { email, type Input, minLength, object, string } from "valibot";
+import { Form as FormQuiwk } from "@builder.io/qwik-city";
 
-const LoginSchema = object({
-  email: string([
-    minLength(1, "Please enter your email."),
-    email("The email address is badly formatted."),
-  ]),
-  password: string([
-    minLength(1, "Please enter your password."),
-    minLength(8, "Your password must have 8 characters or more."),
-  ]),
-});
+import { useAuthSignin } from "~/routes/plugin@auth";
 
-type LoginForm = Input<typeof LoginSchema>;
+// import { email, type Input, minLength, object, string } from "valibot";
+import { Button } from "~/components/Button";
 
-export const useFormLoader = routeLoader$<InitialValues<LoginForm>>(() => ({
-  email: "",
-  password: "",
-}));
+// const LoginSchema = object({
+//   email: string([
+//     minLength(1, "Please enter your email."),
+//     email("The email address is badly formatted."),
+//   ]),
+//   password: string([
+//     minLength(1, "Please enter your password."),
+//     minLength(8, "Your password must have 8 characters or more."),
+//   ]),
+// });
 
-export const useFormAction = formAction$<LoginForm>((values) => {
-  console.log(values);
-}, valiForm$(LoginSchema));
+// type LoginForm = Input<typeof LoginSchema>;
+
+// export const useFormLoader = routeLoader$<InitialValues<LoginForm>>(() => ({
+//   email: "",
+//   password: "",
+// }));
+
+// export const useFormAction = formAction$<LoginForm>((values) => {
+//   console.log(values);
+// }, valiForm$(LoginSchema));
 
 export default component$(() => {
-  const [loginForm, { Form, Field }] = useForm<LoginForm>({
-    loader: useFormLoader(),
-    action: useFormAction(),
-    validate: valiForm$(LoginSchema),
-  });
+  const signIn = useAuthSignin();
 
-  const handleSubmit = $<SubmitHandler<LoginForm>>((values) => {
-    loginForm.dirty;
-    console.log(values);
-  });
+  // const [loginForm, { Form, Field }] = useForm<LoginForm>({
+  //   loader: useFormLoader(),
+  //   action: useFormAction(),
+  //   validate: valiForm$(LoginSchema),
+  // });
+
+  // const handleSubmit = $<SubmitHandler<LoginForm>>((values) => {
+  //   loginForm.dirty;
+  //   console.log(values);
+  // });
 
   return (
     <Flex
@@ -60,12 +59,9 @@ export default component$(() => {
       <Flex flexDirection={"column"} alignItems={"center"} gap={4}>
         <Flex flexDirection={"column"} gap={4} alignItems={"center"}>
           <h1 class={css({ textStyle: "title" })}>Login</h1>
-          <p class={css({ textStyle: "body" })}>
-            This is a paragraph from Panda with the body text style.
-          </p>
+          <p class={css({ textStyle: "body" })}>Inicia sesión</p>
         </Flex>
-
-        <Form
+        {/* <Form
           onSubmit$={handleSubmit}
           class={css({
             display: "flex",
@@ -126,7 +122,12 @@ export default component$(() => {
             )}
           </Field>
           <Button>Login</Button>
-        </Form>
+        </Form> */}
+        <FormQuiwk action={signIn}>
+          <input type="hidden" name="providerId" value="google" />
+          <input type="hidden" name="options.callbackUrl" value="/" />
+          <Button>Iniciar sesión con Google</Button>
+        </FormQuiwk>
       </Flex>
     </Flex>
   );
