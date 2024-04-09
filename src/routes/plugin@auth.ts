@@ -3,7 +3,7 @@ import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import type { Provider } from "@auth/core/providers";
 import Credentials from "@auth/core/providers/credentials";
-import { prisma } from "./../server/db";
+import prisma from "./../server/db";
 import bcrypt from "bcrypt";
 
 export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
@@ -39,7 +39,7 @@ export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
             return null;
           }
 
-          const exist = await prisma.user
+          const exist = await prisma?.user
             .findUnique({
               where: { email },
             })
@@ -53,7 +53,7 @@ export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
 
           const hashedPassword = await bcrypt.hash(password, 10);
 
-          const user = await prisma.user.create({
+          const user = await prisma?.user.create({
             data: {
               email,
               password: {
