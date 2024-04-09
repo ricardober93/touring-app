@@ -26,8 +26,9 @@ export default defineConfig(({ command, mode }): UserConfig => {
       tsconfigPaths(),
     ],
     build: {
+      ssr: "src/entry.ssr.tsx",
       commonjsOptions: {
-      
+       
       }
     },
     // This tells Vite which dependencies to pre-build in dev mode.
@@ -49,7 +50,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
             // If a dep-of-dep needs to be external, add it here
             // For example, if something uses `bcrypt` but you don't have it as a dep, you can write
             // external: [...Object.keys(dependencies), 'bcrypt']
-            external:[...Object.keys(dependencies), 'bcrypt' ],
+            external: [...Object.keys(dependencies), 'bcrypt']
           }
         : undefined,
     server: {
