@@ -54,11 +54,9 @@
     "valibot": "^0.30.0",
     "vercel": "^29.1.1",
     "vite": "^5.1.4",
-    "vite-tsconfig-paths": "^4.2.1"
-  
-  }, 
-  "dependencies": {
+    "vite-tsconfig-paths": "^4.2.1",
     "bcrypt": "^2.4.3"
   }
+
 
 }
