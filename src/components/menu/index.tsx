@@ -13,23 +13,19 @@ export const Menu = component$(() => {
         position: "relative",
       })}
     >
-      <button
+      <span
         onClick$={toggleMenu}
         class={css({
           position: "relative",
           rounded: "lg",
           bg: "gray-900",
-          py: 3,
-          px: 6,
           textAlign: "center",
           font: "sans",
           fontSize: "xs",
           fontWeight: "bold",
-          textTransform: "uppercase",
-          shadow: "md",
+          shadow: "xs",
           transition: "all",
           _hover: {
-            shadow: "lg",
             shadowColor: "gray-900/20",
           },
           _focus: {
@@ -48,7 +44,7 @@ export const Menu = component$(() => {
         })}
       >
         <Slot name="button" />
-      </button>
+      </span>
       <ul
         role="menu"
         style={{ display: show.value ? "block" : "none" }}

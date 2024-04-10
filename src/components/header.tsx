@@ -9,6 +9,8 @@ import { Avatar } from "./Avatar";
 import { Menu } from "./menu";
 import { MenuItem } from "./menuItem";
 import { SignOut } from "./signOut";
+import { c } from "vite/dist/node/types.d-aGj9QkWt";
+import { css } from "~/styled-system/css";
 
 export default component$(() => {
   const session = useAuthSession();
@@ -55,15 +57,22 @@ export default component$(() => {
       >
         {session.value?.user ? (
           <Menu>
-            <Link q:slot="button" href="/profile" prefetch>
-              {" "}
-              <Avatar
-                image={session.value.user.image ?? "https://placehold.co/66x64"}
-              />
-            </Link>
+            <Avatar
+              q:slot="button"
+              image={session.value.user.image ?? "https://placehold.co/66x64"}
+            />
 
             <MenuItem>
-              <Link href="/login">Profile</Link>
+              <Link
+                class={css({
+                  w: "full",
+                  cursor: "pointer",
+                  h: "full",
+                })}
+                href="/profile"
+              >
+                Profile
+              </Link>
             </MenuItem>
             <Divider />
             <MenuItem>

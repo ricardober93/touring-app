@@ -5,6 +5,7 @@ export const MenuItem = component$(() => {
   return (
     <li
       class={css({
+        pointerEvents: "auto",
         display: "block",
         w: "full",
         cursor: "pointer",
