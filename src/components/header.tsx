@@ -1,11 +1,14 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 
-import { Box, Flex } from "~/styled-system/jsx";
+import { Box, Divider, Flex } from "~/styled-system/jsx";
 import { Link } from "@builder.io/qwik-city";
 import { Button } from "./Button";
 
 import { useAuthSession } from "~/routes/plugin@auth";
 import { Avatar } from "./Avatar";
+import { Menu } from "./menu";
+import { MenuItem } from "./menuItem";
+import { SignOut } from "./signOut";
 
 export default component$(() => {
   const session = useAuthSession();
@@ -51,19 +54,26 @@ export default component$(() => {
         }}
       >
         {session.value?.user ? (
-          <Link href="/profile" prefetch>
-            {" "}
-            <Avatar
-              image={session.value.user.image ?? "https://placehold.co/66x64"}
-            />
-          </Link>
+          <Menu>
+            <Link q:slot="button" href="/profile" prefetch>
+              {" "}
+              <Avatar
+                image={session.value.user.image ?? "https://placehold.co/66x64"}
+              />
+            </Link>
+
+            <MenuItem>
+              <Link href="/login">Profile</Link>
+            </MenuItem>
+            <Divider />
+            <MenuItem>
+              <SignOut />
+            </MenuItem>
+          </Menu>
         ) : (
           <>
             <Button>
               <Link href="/login">Login</Link>
-            </Button>
-            <Button variant="secondary">
-              <Link href="/sign-up">Sing up</Link>
             </Button>
           </>
         )}
@@ -102,9 +112,11 @@ export default component$(() => {
           base: "flex",
           md: "none",
         }}
+        py={16}
+        px={8}
         transition={"left 0.5s ease-in-out"}
       >
-        <Flex w={"100%"} justifyContent={"flex-end"} p={4}>
+        <Flex w={"100%"} justifyContent={"flex-end"}>
           <Box
             display={{
               base: "flex",
@@ -131,7 +143,7 @@ export default component$(() => {
           </Box>
         </Flex>
 
-        <Flex flexFlow={"wrap column"} gap={8} py={4} px={8}>
+        <Flex flexFlow={"wrap column"} gap={8}>
           {links.map((link) => (
             <Link
               onClick$={toggleMenu}
@@ -142,20 +154,22 @@ export default component$(() => {
               {link.title}
             </Link>
           ))}
-        </Flex>
-        <Flex gap={4} px={8}>
-          <Button>
+          {session.value?.user ? (
             <Link href="/login" prefetch>
-              Login
+              Profile
             </Link>
-          </Button>
-          <Button variant="secondary">
-            <Link href="/sign-up" prefetch>
-              Sing up
-            </Link>
-          </Button>
+          ) : (
+            <>
+              <Button>
+                <Link href="/login">Login</Link>
+              </Button>
+            </>
+          )}
         </Flex>
+
         <Box flex={1}></Box>
+
+        <SignOut />
       </Flex>
     </Flex>
   );
