@@ -9,7 +9,6 @@ import { Avatar } from "./Avatar";
 import { Menu } from "./menu";
 import { MenuItem } from "./menuItem";
 import { SignOut } from "./signOut";
-import { c } from "vite/dist/node/types.d-aGj9QkWt";
 import { css } from "~/styled-system/css";
 
 export default component$(() => {
