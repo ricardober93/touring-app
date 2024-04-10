@@ -48,3 +48,6 @@ src/styled-system
 
 # env
 .env
+
+# Netlify
+.netlify
