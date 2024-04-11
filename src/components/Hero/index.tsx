@@ -6,9 +6,7 @@ import { FormHero } from "../FormHero";
 export const Hero = component$(() => {
   return (
     <Flex
-      bgImage={
-        "url(https://res.cloudinary.com/dgiznxps9/image/upload/v1712778118/tourismo/keb1neo4uox8jry37hkf.webp)"
-      }
+      bgImage="url(https://res.cloudinary.com/dgiznxps9/image/upload/v1712778118/tourismo/keb1neo4uox8jry37hkf.webp)"
       bgSize={"cover"}
       bgPosition={"center"}
       h={"100dvh"}
@@ -19,7 +17,7 @@ export const Hero = component$(() => {
         base: 4,
         md: 8,
       }}
-      bg={"gray.100"}
+      bg={"gray.900"}
     >
       <Grid
         class={css({
@@ -27,17 +25,12 @@ export const Hero = component$(() => {
             base: "100%",
             md: "50%",
           },
-          gap: 4,
+          gap: 16,
         })}
       >
         <h1
           class={css({
-            fontSize: {
-              base: "4xl",
-              md: "6xl",
-            },
-            fontWeight: "bold",
-            color: "gray.950",
+            textStyle: "hero",
             textOverflow: "ellipsis",
             display: "-webkit-box",
             boxOrient: "vertical",
@@ -48,6 +41,89 @@ export const Hero = component$(() => {
         </h1>
 
         <FormHero />
+
+        <Flex
+          gap={8}
+          flexFlow={{
+            base: "column",
+            md: "row wrap",
+          }}
+        >
+          <Grid gap={2} justifyItems={"center"} alignItems={"center"}>
+            <p
+              class={css({
+                fontSize: "6xl",
+                fontWeight: "bold",
+              })}
+            >
+              400
+              <span
+                class={css({
+                  color: "blue.800",
+                })}
+              >
+                +
+              </span>
+            </p>
+            <p
+              class={css({
+                textStyle: "title",
+              })}
+            >
+              clientes felices
+            </p>
+          </Grid>
+
+          <Grid gap={2} justifyItems={"center"} alignItems={"center"}>
+            <p
+              class={css({
+                fontSize: "6xl",
+                fontWeight: "bold",
+              })}
+            >
+              2k
+              <span
+                class={css({
+                  color: "blue.800",
+                })}
+              >
+                +
+              </span>
+            </p>
+            <p
+              class={css({
+                textStyle: "title",
+              })}
+            >
+              planes turisticos
+            </p>
+          </Grid>
+
+          <Grid gap={2} justifyItems={"center"} alignItems={"center"}>
+            <p
+              class={css({
+                fontSize: "6xl",
+                fontWeight: "bold",
+              })}
+            >
+              6
+              <span
+                class={css({
+                  color: "blue.800",
+                })}
+              >
+                +
+              </span>
+            </p>
+            <p
+              class={css({
+                textStyle: "title",
+              })}
+            >
+              años de experiencia
+            </p>
+          </Grid>
+        </Flex>
       </Grid>
     </Flex>
   );

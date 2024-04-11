@@ -1,6 +1,18 @@
 import { defineTextStyles } from "@pandacss/dev";
 
 export const textStyles = defineTextStyles({
+  hero: {
+    description: "the hero text - used in the hero",
+    value: {
+      fontFamily: "sans-serif",
+      fontWeight: "800",
+      fontSize: "64px",
+      lineHeight: "72px",
+      letterSpacing: "0",
+      textDecoration: "None",
+      textTransform: "None",
+    },
+  },
   title: {
     description: "The title text style - used in headings",
     value: {
