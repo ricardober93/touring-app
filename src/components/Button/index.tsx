@@ -67,6 +67,7 @@ export const Button = component$<IButton>(({ variant, onClick }) => {
       onClick$={onClick}
     >
       <Slot />
+
     </button>
   );
 });
