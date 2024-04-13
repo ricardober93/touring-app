@@ -42,7 +42,7 @@ export default component$(() => {
         }}
       >
         {links.map((link) => (
-          <Link key={link.href} href={link.href} prefetch={link.prefetch}>
+          <Link key={link.href} href={link.href}>
             {link.title}
           </Link>
         ))}
@@ -153,19 +153,12 @@ export default component$(() => {
 
         <Flex flexFlow={"wrap column"} gap={8}>
           {links.map((link) => (
-            <Link
-              onClick$={toggleMenu}
-              key={link.href}
-              href={link.href}
-              prefetch={link.prefetch}
-            >
+            <Link onClick$={toggleMenu} key={link.href} href={link.href}>
               {link.title}
             </Link>
           ))}
           {session.value?.user ? (
-            <Link href="/login" prefetch>
-              Profile
-            </Link>
+            <Link href="/login">Profile</Link>
           ) : (
             <>
               <Button>
@@ -184,8 +177,8 @@ export default component$(() => {
 });
 
 const links = [
-  { href: "/", title: "Home", prefetch: true },
-  { href: "/about", title: "About", prefetch: true },
-  { href: "/discover", title: "Discover", prefetch: true },
-  { href: "/contact", title: "Contact", prefetch: true },
+  { href: "/", title: "Home" },
+  { href: "/about", title: "About" },
+  { href: "/discover", title: "Discover" },
+  { href: "/contact", title: "Contact" },
 ];
