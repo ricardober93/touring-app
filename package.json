@@ -58,7 +58,7 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "@types/bcryptjs": "^2.4.6"
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3"
   }
 }

@@ -1,8 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { $, component$ } from "@builder.io/qwik";
 import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { Button } from "~/components/Button";
 import { FormDiscovery } from "~/components/FormDiscovery";
 import { css } from "~/styled-system/css";
-
+import Heart from '~/media/heart.svg?jsx';
 import { Box, Grid } from "~/styled-system/jsx";
 
 export interface IndexProps {}
@@ -23,6 +24,21 @@ export const useTours = routeLoader$(async ({ url }) => {
 
 export default component$<IndexProps>(() => {
   const tours = useTours();
+
+
+  const HandleBookmark = $(async (id: string) => {
+    console.log("Bookmarking", id);
+    // const api = "/api/bookmark";
+    // const res = await fetch(api, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ id }),
+    // });
+    // const data = await res.json();
+    // console.log(data);
+  });
 
   return (
     <Box h={"100dvh"} textAlign={"center"}>
@@ -51,8 +67,43 @@ export default component$<IndexProps>(() => {
         p={4}
       >
         {tours.value.map((tour: any) => (
-          <Link key={tour.id} href={`/tours/${tour.id}`}>
-          <Box display={"grid"} gap={3} key={tour.id} maxW={"280px"}>
+          <Box position={"relative"} display={"grid"} gap={3} key={tour.id} maxW={"280px"}>
+
+            <Box class={
+              css({
+                position: "absolute",
+                zIndex: 1,
+                top: 0,
+                right: 0,
+                bg: "primary",
+                color: "white",
+                p: 2,
+                borderRadius: 4,
+                cursor: "pointer",
+
+                _hover: {
+                  bg: "gray.700",
+                },
+              })}
+
+              onClick$={() => HandleBookmark(tour.id)}
+            >
+              <Heart style={{ width: 24, height: 24 }} />
+            </Box>
+
+            <Link class={
+              css({
+                textDecoration: "none",
+                color: "inherit",
+                position: "relative",
+                zIndex: 0,
+              })
+
+            } key={tour.id} href={`/tours/${tour.id}`}>
+
+
+
+
               <img
                 class={css({
                   borderRadius: 4,
@@ -82,8 +133,8 @@ export default component$<IndexProps>(() => {
               >
                 {tour.summary}
               </p>
-            </Box>
           </Link>
+          </Box>
         ))}
       </Grid>
     </Box>
