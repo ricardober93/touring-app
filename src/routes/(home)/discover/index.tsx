@@ -1,9 +1,8 @@
 import { $, component$ } from "@builder.io/qwik";
 import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-import { Button } from "~/components/Button";
 import { FormDiscovery } from "~/components/FormDiscovery";
-import { css } from "~/styled-system/css";
 import Heart from '~/media/heart.svg?jsx';
+import { css } from "~/styled-system/css";
 import { Box, Grid } from "~/styled-system/jsx";
 
 export interface IndexProps {}
