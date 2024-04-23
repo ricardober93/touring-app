@@ -6,7 +6,13 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "sans-serif",
       fontWeight: "800",
-      fontSize: "64px",
+      fontSize: {
+        base: "32px",
+        sm: "48px",
+        md: "64px",
+        lg: "72px",
+        xl: "86px",
+      },
       lineHeight: "72px",
       letterSpacing: "0",
       textDecoration: "None",
@@ -18,7 +24,10 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "sans-serif",
       fontWeight: "700",
-      fontSize: "24px",
+      fontSize: {
+        base: "22px",
+        sm: "24px",
+      },
       lineHeight: "32px",
       letterSpacing: "0",
       textDecoration: "None",
@@ -30,7 +39,10 @@ export const textStyles = defineTextStyles({
     value: {
       fontFamily: "sans-serif",
       fontWeight: "500",
-      fontSize: "16px",
+      fontSize: {
+        base: "14px",
+        sm: "16px",
+      },
       lineHeight: "24px",
       letterSpacing: "0",
       textDecoration: "None",
