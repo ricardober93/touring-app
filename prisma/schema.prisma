@@ -23,7 +23,7 @@ model User {
 
   reviews Review[]
   bookings Booking[]
-
+  tours  Tour[]
 }
 
 model Password {
@@ -31,6 +31,7 @@ model Password {
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String @unique
+
 }
 
 enum Role {
@@ -60,6 +61,8 @@ model Tour {
   startDates  DateTime[]
   reviews     Review[]
   bookings    Booking[]
+  userId      String
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 enum Difficulty {
