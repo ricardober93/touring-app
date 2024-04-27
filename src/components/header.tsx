@@ -42,7 +42,11 @@ export default component$(() => {
         }}
       >
         {links.map((link) => (
-          <Link key={link.href} href={link.href}>
+          <Link class={css({
+            p: 3,
+            cursor: "pointer",
+
+          })} key={link.href} href={link.href}>
             {link.title}
           </Link>
         ))}
@@ -61,18 +65,30 @@ export default component$(() => {
               image={session.value.user.image ?? "https://placehold.co/66x64"}
             />
 
-            <MenuItem>
+            {session.value?.user ? (
+              <MenuItem>
+
+
               <Link
                 class={css({
-                  w: "full",
+                  p: 2,
                   cursor: "pointer",
-                  h: "full",
+
                 })}
                 href="/profile"
               >
                 Profile
               </Link>
-            </MenuItem>
+              </MenuItem>)
+              : null}
+
+
+            {session.value?.role === "ADMIN" ? (
+              <MenuItem>
+                <Link class={css({ p: 2, cursor: "pointer", })} href="/dashboard">dashboard</Link>
+              </MenuItem>)
+              : null}
+
             <Divider />
             <MenuItem>
               <SignOut />
@@ -81,7 +97,11 @@ export default component$(() => {
         ) : (
           <>
             <Button>
-              <Link href="/login">Login</Link>
+                <Link class={css({
+                  p: 3,
+                  cursor: "pointer",
+
+                })} href="/login">Login</Link>
             </Button>
           </>
         )}
@@ -157,15 +177,19 @@ export default component$(() => {
               {link.title}
             </Link>
           ))}
+
           {session.value?.user ? (
-            <Link href="/login">Profile</Link>
+            <Link class={css({ p: 2 })} href="/login">Profile</Link>
+
           ) : (
             <>
-              <Button>
-                <Link href="/login">Login</Link>
+                <Button>
+                  <Link href="/login">Login</Link>
               </Button>
             </>
           )}
+
+
         </Flex>
 
         <Box flex={1}></Box>

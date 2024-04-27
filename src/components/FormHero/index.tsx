@@ -21,7 +21,16 @@ export const FormHero = component$(() => {
 
       <input type="text" placeholder="tipo" />
       <input type="text" placeholder="rango de precio" />
-      <Button>Enviar</Button>
+      <Button>
+        <span
+          class={css({
+            p: 3,
+            cursor: "pointer",
+          })}
+        >
+          Buscar
+        </span>
+      </Button>
     </Form>
   );
 });

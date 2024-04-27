@@ -19,8 +19,7 @@ export const Button = component$<IButton>(({ variant, onClick }) => {
           borderColor: "gray.800",
           borderStyle: "solid",
           color: "gray.800",
-          py: 3,
-          px: 4,
+
           cursor: "pointer",
         })}
         onClick$={onClick}
@@ -40,8 +39,7 @@ export const Button = component$<IButton>(({ variant, onClick }) => {
           justifyContent: "center",
           bg: "gray.400",
           color: "white",
-          py: 3,
-          px: 4,
+
           cursor: "pointer",
         })}
         onClick$={onClick}
@@ -60,8 +58,7 @@ export const Button = component$<IButton>(({ variant, onClick }) => {
         justifyContent: "center",
         bg: "gray.800",
         color: "white",
-        py: 3,
-        px: 4,
+
         cursor: "pointer",
       })}
       onClick$={onClick}

@@ -16,6 +16,7 @@ if (typeof window === "undefined") {
 
         prisma = global.prisma;
     }
+    prisma.$connect();
 }
 
 
