@@ -33,7 +33,7 @@ export default component$(() => {
           <input type="hidden" name="options.callbackUrl" value="/dashboard" />
           <Button>
             <span class={css({ p: 3, cursor: "pointer", })}>
-              Iniciar sesión con Google
+              Usar credenciales
             </span>
           </Button>
         </FormQuiwk>

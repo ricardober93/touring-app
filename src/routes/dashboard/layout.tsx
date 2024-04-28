@@ -1,7 +1,11 @@
+
 import { Session } from "@auth/core/types";
 import { Slot, component$ } from "@builder.io/qwik";
 import { RequestHandler } from "@builder.io/qwik-city";
-import Header from "~/components/header";
+import { SideBar } from "~/components/Sidebar";
+import { css } from "~/styled-system/css";
+
+
 
 export const onRequest: RequestHandler = (event) => {
     const session: Session | null = event.sharedMap.get("session");
@@ -16,8 +20,25 @@ export const onRequest: RequestHandler = (event) => {
 export default component$(() => {
     return (
         <>
-            <Header />
-            <Slot />
+            <section
+                class={css({
+                    display: "flex",
+                    minHeight: "100vh",
+                })}
+            >
+                <div class={css({
+                    maxW: "250px",
+                    w: "35%",
+                    minHeight: "100vh",
+                })}>
+                    <SideBar />
+                </div>
+                <div class={css({
+                    flex: 1,
+                })}>
+                    <Slot />
+                </div>
+            </section>
         </>
     );
 });
